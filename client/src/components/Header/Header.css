@@ -1,0 +1,31 @@
+/* Header.css */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #333;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+.header-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.header-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.header-nav a:hover {
+    background-color: #555;
+    border-radius: 4px;
+}
