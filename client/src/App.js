@@ -13,7 +13,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/event/:eventId" component={Event} />
       </Routes>
     </Router>
   );
