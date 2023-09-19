@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { eventsList } from '../Events/EventsData'; // Change to the correct relative path
+import { eventsList } from '../Events/EventsData';
 import './Events.css';
 
 function Events() {
@@ -17,6 +17,7 @@ function Events() {
     setShowModal(false);
     setSelectedEvent(null);
   };
+
   const handleReservation = async () => {
     try {
         const response = await fetch('http://localhost:3002/reserve', {
@@ -33,17 +34,18 @@ function Events() {
         });
 
         // Ensure the response is JSON before parsing
-        if (!response.ok) {
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+            const data = await response.json();
+
+            if (response.status === 200) {
+                alert('Reserved successfully!');
+            } else {
+                alert(`Error reserving. ${data.message || 'Please try again.'}`);
+            }
+        } else if (!response.ok) {
             console.error("Server responded with status:", response.status);
             throw new Error("Server response was not OK");
-        }
-
-        const data = await response.json();
-
-        if (response.status === 200) {
-            alert('Reserved successfully!');
-        } else {
-            alert(`Error reserving. ${data.message || 'Please try again.'}`);
         }
 
     } catch (error) {
@@ -52,9 +54,7 @@ function Events() {
     } finally {
         handleCloseModal();
     }
-};
-
-
+  };
 
   const renderEventItems = () => {
     return eventsList.map(event => (

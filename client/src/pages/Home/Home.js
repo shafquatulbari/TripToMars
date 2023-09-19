@@ -36,17 +36,18 @@ function Home() {
         });
 
         // Ensure the response is JSON before parsing
-        if (!response.ok) {
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+            const data = await response.json();
+
+            if (response.status === 200) {
+                alert('Reserved successfully!');
+            } else {
+                alert(`Error reserving. ${data.message || 'Please try again.'}`);
+            }
+        } else if (!response.ok) {
             console.error("Server responded with status:", response.status);
             throw new Error("Server response was not OK");
-        }
-
-        const data = await response.json();
-
-        if (response.status === 200) {
-            alert('Reserved successfully!');
-        } else {
-            alert(`Error reserving. ${data.message || 'Please try again.'}`);
         }
 
     } catch (error) {
@@ -56,6 +57,7 @@ function Home() {
         handleCloseModal();
     }
 };
+
 
 
 
