@@ -74,12 +74,32 @@ function Home() {
 
   return (
     <div className="home-container">
+      <div className="video-container">
+        <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%' }}>
+            <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/MR3gglmUDiM?autoplay=1&loop=1&mute=1&modestbranding=1&controls=0&playlist=MR3gglmUDiM" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                style={{ 
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    pointerEvents: 'none',
+                }}
+                allowfullscreen>
+            </iframe>
+        </div>
+
+      </div>
       <h2>Upcoming Events</h2>
       <div className="home-events-list">
         {renderEventItems()}
       </div>
 
-      <Link to="/events">View All Events</Link>  {/* Button to redirect to Events page */}
+      <Link to="/events" className="view-all-events">View All Events</Link>
 
       {showModal && selectedEvent && (
         <div className="modal">

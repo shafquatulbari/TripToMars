@@ -1,31 +1,49 @@
 /* Header.css */
 
+/* Orbitron font from Google Fonts for techno vibe */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #333;
+    background: linear-gradient(135deg, #2b203a, #3c314c);
+    /* Gradient from dark purple to slightly lighter purple */
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* subtle shadow for depth */
 }
 
 .header-title {
-    font-size: 1.5rem;
-    color: white;
+    font-size: 1.7rem;
+    color: #e0d6ff;
+    /* Light purplish tint */
     text-decoration: none;
+    letter-spacing: 2px;
+    /* Spacing between characters for techno vibe */
 }
 
 .header-nav {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .header-nav a {
-    color: white;
+    color: #e0d6ff;
+    /* Light purplish tint */
     text-decoration: none;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* smooth transition for hover effects */
 }
 
 .header-nav a:hover {
-    background-color: #555;
-    border-radius: 4px;
+    background-color: rgba(224, 214, 255, 0.2);
+    /* Slight highlight on hover */
+    transform: scale(1.05);
+    /* Slightly increase size on hover */
+    box-shadow: 0 4px 12px rgba(57, 45, 91, 0.3);
+    /* Glow effect on hover */
 }
