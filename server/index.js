@@ -58,7 +58,7 @@ app.post('/reserve', async (req, res) => {
             from: YOUR_EMAIL,
             to: YOUR_EMAIL,  // You're sending email to yourself
             subject: `Reservation for ${eventName}`,
-            text: `User Email: ${email}\nGender: ${gender}\nEvent: ${eventName}\nEvent Date: ${eventDate}`
+            text: `User Email: ${email}\nGender: ${gender}\nEvent: ${eventName}\nEvent Date: ${eventDate} \nhttps://forms.gle/bEaHiXKTGBa4e4Xs6`
         };
 
         // Sending email

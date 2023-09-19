@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { eventsList } from '../Events/EventsData';
 import './Home.css';
+import { Link } from 'react-router-dom';
+
 
 function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -49,7 +51,7 @@ function Home() {
 
     } catch (error) {
         console.error("Error:", error);
-        alert('An error occurred. Please try again.');
+        alert(error);
     } finally {
         handleCloseModal();
     }
@@ -58,7 +60,8 @@ function Home() {
 
 
   const renderEventItems = () => {
-    return eventsList.map(event => (
+    // Display only the 3 most recent events
+    return eventsList.slice(0, 3).map(event => (
       <div key={event.id} className="home-event-item" onClick={() => handleEventClick(event)}>
         <img src={event.imageUrl} alt={event.name} />
         <h4>{event.name}</h4>
@@ -73,6 +76,8 @@ function Home() {
       <div className="home-events-list">
         {renderEventItems()}
       </div>
+
+      <Link to="/events">View All Events</Link>  {/* Button to redirect to Events page */}
 
       {showModal && selectedEvent && (
         <div className="modal">
@@ -91,6 +96,10 @@ function Home() {
           </div>
         </div>
       )}
+      <h2>Contact Us</h2>
+      <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/triptomars" target="_blank" rel="noopener noreferrer">triptomars</a></p>
+      <p>Phone: +1234567890</p>
     </div>
   );
 }
