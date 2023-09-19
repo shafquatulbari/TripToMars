@@ -7,11 +7,28 @@ function Events() {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [email, setEmail] = useState('');
   const [gender, setGender] = useState('male');
+  const [currentIndex, setCurrentIndex] = useState(0);
+
 
   const handleEventClick = (event) => {
     setSelectedEvent(event);
+    setCurrentIndex(eventsList.indexOf(event));
     setShowModal(true);
   };
+  const prevEvent = () => {
+  if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+      setSelectedEvent(eventsList[currentIndex - 1]);
+    }
+  };
+
+  const nextEvent = () => {
+    if (currentIndex < eventsList.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      setSelectedEvent(eventsList[currentIndex + 1]);
+    }
+  };
+
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -77,7 +94,11 @@ function Events() {
         <div className="modal">
           <div className="modal-content">
             <span className="close-button" onClick={handleCloseModal}>×</span>
+            
+            <button onClick={prevEvent} disabled={currentIndex === 0}>Previous</button>
             <img src={selectedEvent.imageUrl} alt={selectedEvent.name} />
+            <button onClick={nextEvent} disabled={currentIndex === eventsList.length - 1}>Next</button>
+
             <h2>{selectedEvent.name}</h2>
             <p>{selectedEvent.date}</p>
             <input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -90,6 +111,7 @@ function Events() {
           </div>
         </div>
       )}
+
     </div>
   );
 }

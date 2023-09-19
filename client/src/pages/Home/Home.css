@@ -48,13 +48,70 @@ body {
 }
 
 .modal-content {
-    position: relative;
-    background-color: #0b0047;
-    padding: 1rem;
-    max-width: 500px;
-    width: 90%;
+    /* ... (retain existing styles) ... */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-content img {
+    max-width: 80%;
+    /* Adjust based on preference */
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.modal-content h2,
+.modal-content p {
+    width: 80%;
+    /* Adjust based on preference */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.modal-content input[type="email"],
+.modal-content select {
+    width: 80%;
+    /* Adjust based on preference */
+    padding: 0.5rem;
+    margin-bottom: 1rem;
     border: 1px solid #a8a8ff;
     border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #a8a8ff;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.modal-content button {
+    background-color: #a8a8ff;
+    color: #0b0047;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.modal-content button:hover {
+    background-color: #dcdcff;
+    color: #0b0047;
+}
+
+/* Image slider styles */
+.image-slider {
+    width: 80%;
+    /* Adjust based on preference */
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.image-slider img {
+    flex: 0 0 auto;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .close-button {
