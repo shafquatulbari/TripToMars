@@ -17,5 +17,8 @@
     "mongodb": "^6.1.0",
     "mongoose": "^7.5.2",
     "nodemailer": "^6.9.5"
+  },
+  "engines": {
+    "node": ">=18.17.1"
   }
 }

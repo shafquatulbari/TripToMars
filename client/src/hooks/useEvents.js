@@ -49,7 +49,7 @@ export const useEvents = (initialEvent, eventsData) => {
   };
   const handleReservation = async () => {
     try {
-        const response = await fetch('http://https://triptomarsisrealbackend.onrender.com/reserve', {
+        const response = await fetch('https://triptomarsisrealbackend.onrender.com/reserve', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
