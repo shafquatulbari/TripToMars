@@ -42,7 +42,7 @@ function Events() {
       {showModal && selectedEvent && (
         <div className="events-modal">
           <div className="events-modal-content">
-            <span className="events-close-button" onClick={handleCloseModal}>×</span>
+            <span className="events-close-button" onClick={handleCloseModal}>Close</span>
             <button onClick={prevEvent} disabled={currentIndex === 0}>Previous Event</button>
             <div className="image-slider">
               
