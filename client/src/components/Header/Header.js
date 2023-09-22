@@ -8,7 +8,7 @@ function Header() {
   return (
     <header className="header">
       <Link to="/" className="header-title">
-        Trip to Mars
+        TRIP TO MARS
       </Link>
       <nav className="header-nav">
         {/* Add links to other parts of your site here if needed */}

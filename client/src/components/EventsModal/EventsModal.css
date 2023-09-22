@@ -76,3 +76,81 @@
     color: #050023;
 }
 
+.image-slider {
+    position: relative;
+    width: 80%;
+    /* Add a specific height if all images are of the same height; adjust based on your need */
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    /* Horizontally center the image */
+    align-items: center;
+    /* Vertically center the image and buttons */
+    margin-bottom: 1rem;
+    overflow: hidden;
+    /* Hide overflow content (like parts of the image outside the container) */
+}
+
+.image-slider img {
+    max-width: 100%;
+    /* Adjust based on preference, used max-width to retain image's aspect ratio */
+    border-radius: 8px;
+}
+
+
+.image-slider-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.image-slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    /* semi-transparent black */
+    color: #d2a8ff;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 70px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+    /* Ensure buttons are above the image */
+}
+
+.image-slider-button.prev {
+    left: 10px;
+    /* position it 10px from the left */
+}
+
+.image-slider-button.next {
+    right: 10px;
+    /* position it 10px from the right */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* semi-transparent black */
+    color: #d2a8ff;
+    border-radius: 40%;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    transition: background-color 0.5s ease;
+    /* Ensure buttons are above the image */
+}
+
+.close-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+}
