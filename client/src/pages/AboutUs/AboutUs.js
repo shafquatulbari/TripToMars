@@ -6,7 +6,7 @@ import './AboutUs.css';
 function AboutUs() {
   return (
     <div className="about-container">
-      <h1>About Trip to Mars</h1>
+      <h1>About Us</h1>
 
       <section className="mission">
         <h2>Our Mission</h2>
@@ -29,7 +29,7 @@ function AboutUs() {
       <section className="contact">
         <h2>Contact Us</h2>
         <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
-        <p>Instagram: <a href="https://instagram.com/triptomars">triptomars</a></p>
+        <p>Instagram: <a href="https://instagram.com/triptomarsisreal">triptomars</a></p>
         <p>Phone: +1234567890</p>
       </section>
     </div>

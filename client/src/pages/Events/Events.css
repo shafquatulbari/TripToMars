@@ -11,9 +11,9 @@
 }
 
 .event-item {
-    border: 1px solid #e5e5e5;
+    border: 1px solid #3a008c;
     padding: 1rem;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
@@ -24,33 +24,36 @@
 
 .event-item img {
     max-width: 100%;
-    height: auto;
+    border-radius: 8px;
 }
 
-.modal {
+.events-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    background-color: rgba(47, 6, 47, 0.9);
+    z-index: 1;
 }
 
-.modal-content {
-    background-color: #fff;
+.events-modal-content {
+    background-color: #5c014b;
     padding: 2rem;
     width: 70%;
     max-width: 500px;
     position: relative;
     border-radius: 5px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.close-button {
+.events-close-button {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -61,11 +64,11 @@
     color: #333;
 }
 
-.close-button:hover {
+.events-close-button:hover {
     color: #555;
 }
 
-.image-slider {
+.events-image-slider {
     position: relative;
     width: 80%;
     /* Add a specific height if all images are of the same height; adjust based on your need */
@@ -80,13 +83,13 @@
     /* Hide overflow content (like parts of the image outside the container) */
 }
 
-.image-slider img {
+.events-image-slider img {
     max-width: 100%;
     /* Adjust based on preference, used max-width to retain image's aspect ratio */
     border-radius: 8px;
 }
 
-.image-slider-button {
+.events-image-slider-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -97,7 +100,7 @@
     border: none;
     border-radius: 50%;
     width: 40px;
-    height: 40px;
+    height: 70px;
     line-height: 40px;
     text-align: center;
     cursor: pointer;
@@ -106,12 +109,12 @@
     /* Ensure buttons are above the image */
 }
 
-.image-slider-button.prev {
+.events-image-slider-button.prev {
     left: 10px;
     /* position it 10px from the left */
 }
 
-.image-slider-button.next {
+.events-image-slider-button.next {
     right: 10px;
     /* position it 10px from the right */
 }

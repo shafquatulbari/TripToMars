@@ -1,6 +1,6 @@
 body {
     font-family: 'Orbitron', sans-serif;
-    background-image: linear-gradient(120deg, #480048, #0b0047);
+    background-image: linear-gradient(120deg, #310031, #050023);
     color: #a8a8ff;
 }
 
@@ -9,14 +9,14 @@ body {
 }
 
 .home-events-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    justify-content: center;
+    margin: 1rem 0;
 }
 
 .home-event-item {
-    border: 1px solid #a8a8ff;
+    border: 1px solid #3a008c;
     padding: 1rem;
     transition: transform 0.2s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -43,12 +43,18 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(72, 0, 72, 0.9);
+    background-color: rgba(47, 6, 47, 0.9);
     z-index: 1;
 }
 
 .modal-content {
-    /* ... (retain existing styles) ... */
+    background-color: #5c014b;
+    padding: 2rem;
+    width: 70%;
+    max-width: 500px;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -117,12 +123,19 @@ body {
 .close-button {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 40px;
     cursor: pointer;
-    font-size: 24px;
-    border: none;
-    background: transparent;
-    color: #a8a8ff;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* semi-transparent black */
+    color: #d2a8ff;
+    border-radius: 40%;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    transition: background-color 0.5s ease;
+    /* Ensure buttons are above the image */
 }
 
 a,
@@ -147,7 +160,7 @@ h2 {
     display: block;
     margin: 2rem auto;
     padding: 0.5rem 1.5rem;
-    border: 2px solid #a8a8ff;
+    border: 1px solid #3a008c;
     border-radius: 8px;
     text-align: center;
     transition: background-color 0.3s ease;
@@ -193,25 +206,6 @@ h2 {
     border-radius: 8px;
 }
 
-.image-slider-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    /* semi-transparent black */
-    color: #a8a8ff;
-    font-size: 1.5rem;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    z-index: 2;
-    /* Ensure buttons are above the image */
-}
 
 .image-slider-button:hover {
     background-color: rgba(0, 0, 0, 0.7);
@@ -222,12 +216,12 @@ h2 {
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
-    color: #a8a8ff;
+    color: #d2a8ff;
     font-size: 1.5rem;
     border: none;
     border-radius: 50%;
     width: 40px;
-    height: 40px;
+    height: 70px;
     line-height: 40px;
     text-align: center;
     cursor: pointer;

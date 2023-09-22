@@ -1,96 +1,28 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import { eventsList } from '../Events/EventsData';
 import './Home.css';
 import { Link } from 'react-router-dom';
-
+import { useEvents } from '../../hooks/useEvents';  // make sure to update the path to where useEvents.js is
 
 function Home() {
-  const [showModal, setShowModal] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState(null);
-  const [email, setEmail] = useState('');
-  const [gender, setGender] = useState('male')
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-
-
-  const handleEventClick = (event) => {
-    setSelectedEvent(event);
-    setCurrentIndex(eventsList.indexOf(event));
-    setCurrentImageIndex(0);
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    setSelectedEvent(null);
-    setCurrentImageIndex(0);
-  };
-
-
-
-  const handleReservation = async () => {
-    try {
-        const response = await fetch('http://localhost:3002/reserve', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email: email,
-                gender: gender,
-                eventName: selectedEvent.name,
-                eventDate: selectedEvent.date
-            })
-        });
-
-        // Ensure the response is JSON before parsing
-        const contentType = response.headers.get("content-type");
-        if (contentType && contentType.indexOf("application/json") !== -1) {
-            const data = await response.json();
-
-            if (response.status === 200) {
-                alert('Reserved successfully!');
-            } else {
-                alert(`Error reserving. ${data.message || 'Please try again.'}`);
-            }
-        } else if (!response.ok) {
-            console.error("Server responded with status:", response.status);
-            throw new Error("Server response was not OK");
-        }
-
-    } catch (error) {
-        console.error("Error:", error);
-        alert(error);
-    } finally {
-        handleCloseModal();
-    }
-};
-const prevEvent = () => {
-  if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-      setSelectedEvent(eventsList[currentIndex - 1]);
-    }
-  };
-
-  const nextEvent = () => {
-    if (currentIndex < eventsList.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-      setSelectedEvent(eventsList[currentIndex + 1]);
-    }
-  };
-  const prevImage = () => {
-    if (currentImageIndex > 0) {
-      setCurrentImageIndex(currentImageIndex - 1);
-    }
-  };
-
-  const nextImage = () => {
-    if (selectedEvent && currentImageIndex < selectedEvent.images.length - 1) {
-      setCurrentImageIndex(currentImageIndex + 1);
-    }
-  };
-
+  const {
+    selectedEvent,
+    currentIndex,
+    currentImageIndex,
+    showModal,
+    email,
+    gender,
+    setEmail,
+    setGender,
+    handleEventClick,
+    prevEvent,
+    nextEvent,
+    prevImage,
+    nextImage,
+    handleReservation,
+    handleCloseModal
+  } = useEvents();
 
   const renderEventItems = () => {
     // Display only the 3 most recent events
@@ -102,7 +34,6 @@ const prevEvent = () => {
       </div>
     ));
   };
-
 
   return (
     <div className="home-container">
@@ -136,7 +67,7 @@ const prevEvent = () => {
       {showModal && selectedEvent && (
         <div className="modal">
           <div className="modal-content">
-            <span className="close-button" onClick={handleCloseModal}>×</span>
+            <span className="close-button" onClick={handleCloseModal}>Close</span>
             <button onClick={prevEvent} disabled={currentIndex === 0}>Previous Event</button>
             <div className="image-slider">
               
@@ -170,7 +101,8 @@ const prevEvent = () => {
                 <option value="female">Female</option>
                 <option value="others">Others</option>
             </select>
-            <button onClick={handleReservation}>Reserve</button>
+            <p>Submit to get an email confirmation with form</p>
+            <button onClick={handleReservation}>Submit</button>
           </div>
         </div>
       )}
