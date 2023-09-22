@@ -2,6 +2,7 @@ import React from 'react';
 import { eventsList } from '../Events/EventsData';
 import './Events.css';
 import { useEvents } from '../../hooks/useEvents'; // Correct path to your useEvents hook
+import EventModal from '../../components/EventsModal/EventModal';
 
 function Events() {
   const {
@@ -40,46 +41,23 @@ function Events() {
       </div>
 
       {showModal && selectedEvent && (
-        <div className="events-modal">
-          <div className="events-modal-content">
-            <span className="events-close-button" onClick={handleCloseModal}>Close</span>
-            <button onClick={prevEvent} disabled={currentIndex === 0}>Previous Event</button>
-            <div className="image-slider">
-              
-                <button 
-                    className="events-image-slider-button prev" 
-                    onClick={prevImage} 
-                    disabled={currentImageIndex === 0}
-                >
-                    &lt;
-                </button>
-                
-                <img 
-                    src={selectedEvent.images[currentImageIndex]} 
-                    alt={`${selectedEvent.name} - Image ${currentImageIndex + 1}`}
+                <EventModal 
+                    selectedEvent={selectedEvent}
+                    currentIndex={currentIndex}
+                    currentImageIndex={currentImageIndex}
+                    showModal={showModal}
+                    email={email}
+                    gender={gender}
+                    setEmail={setEmail}
+                    setGender={setGender}
+                    handleEventClick={handleEventClick}
+                    prevEvent={prevEvent}
+                    nextEvent={nextEvent}
+                    prevImage={prevImage}
+                    nextImage={nextImage}
+                    handleReservation={handleReservation}
+                    handleCloseModal={handleCloseModal}
                 />
-
-                <button 
-                    className="events-image-slider-button next" 
-                    onClick={nextImage} 
-                    disabled={currentImageIndex === selectedEvent.images.length - 1}
-                >
-                    &gt;
-                </button>
-            </div>
-            <button onClick={nextEvent} disabled={currentIndex === eventsList.length - 1}>Next Event</button>
-            <h2>{selectedEvent.name}</h2>
-            <p>{selectedEvent.date}</p>
-            <input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <select value={gender} onChange={(e) => setGender(e.target.value)}>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="others">Others</option>
-            </select>
-            <p>Submit to get an email confirmation with form</p>
-            <button onClick={handleReservation}>Submit</button>
-          </div>
-        </div>
       )}
 
     </div>
