@@ -56,7 +56,7 @@ function Home() {
                 allowfullscreen>
             </iframe>
         </div>
-
+      <p>Form 👉: <a href="https://docs.google.com/forms/d/e/1FAIpQLScSLjJ1ivR6WsVqRnpOZZEasPoU8p981TVo5nSth73q-7BGzA/viewform">The Mars Project #1</a></p>
       </div>
       <h2>Upcoming Events</h2>
       <div className="home-events-list">
@@ -87,9 +87,9 @@ function Home() {
       
 
       <h2>Contact Us</h2>
-      <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
+      <p>✉️: <a href="mailto:triptomarsbbg@gmail.com">triptomarsbbg@gmail.com</a></p>
       <p>Instagram: <a href="https://instagram.com/triptomarsisreal" target="_blank" rel="noopener noreferrer">triptomars</a></p>
-      <p>Phone: +1234567890</p>
+      <p>📞: <a href="tel: +8801791477226">+8801791477226</a></p>
     </div>
   );
 }

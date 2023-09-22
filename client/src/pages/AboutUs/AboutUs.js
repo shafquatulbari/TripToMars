@@ -17,20 +17,11 @@ function AboutUs() {
         </p>
       </section>
 
-      <section className="history">
-        <h2>Our History</h2>
-        <p>
-          Founded in 2020, "Trip to Mars" has quickly grown to become one of the leading space tourism 
-          companies. We have a dedicated team of engineers, astronauts, and space enthusiasts who are 
-          committed to making space travel safe, affordable, and accessible for all.
-        </p>
-      </section>
-
       <section className="contact">
         <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
-        <p>Instagram: <a href="https://instagram.com/triptomarsisreal">triptomars</a></p>
-        <p>Phone: +1234567890</p>
+        <p>✉️: <a href="mailto:triptomarsbbg@gmail.com">triptomarsbbg@gmail.com</a></p>
+        <p>Instagram: <a href="https://instagram.com/triptomarsisreal" target="_blank" rel="noopener noreferrer">triptomars</a></p>
+        <p>📞: <a href="tel: +8801791477226">+8801791477226</a></p>
       </section>
     </div>
   );
