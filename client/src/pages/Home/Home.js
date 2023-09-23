@@ -46,7 +46,7 @@ function Home() {
                 src="https://www.youtube.com/embed/MR3gglmUDiM?autoplay=1&loop=1&mute=1&modestbranding=1&controls=0&playlist=MR3gglmUDiM" 
                 title="YouTube video player" 
                 frameborder="0" 
-                allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allow="autoplay; muted; playsinline; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 style={{ 
                     position: 'absolute',
                     top: 0,
