@@ -53,10 +53,11 @@ function Home() {
                     left: 0,
                     pointerEvents: 'none',
                 }}
-                allowfullscreen>
+                allowfullscreen
+                playsInline>
             </iframe>
         </div>
-      <p>Form 👉: <a href="https://docs.google.com/forms/d/e/1FAIpQLScSLjJ1ivR6WsVqRnpOZZEasPoU8p981TVo5nSth73q-7BGzA/viewform">The Mars Project #1</a></p>
+      <p>Form ➡️: <a href="https://docs.google.com/forms/d/e/1FAIpQLScSLjJ1ivR6WsVqRnpOZZEasPoU8p981TVo5nSth73q-7BGzA/viewform">The Mars Project #1</a></p>
       </div>
       <h2>Upcoming Events</h2>
       <div className="home-events-list">
